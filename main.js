@@ -2,9 +2,7 @@
 
 const form = document.getElementById('form');
 const username = document.getElementById('username');
-const passwordInput = document.getElementById('password');
-
-
+const password = document.getElementById('password');
 const input_text_label = document.getElementById('input_text_label');
 
 form.addEventListener('submit',(e) => {
@@ -37,6 +35,17 @@ form.addEventListener('submit',(e) => {
         // add success class
         setSuccessFor(input_text_label);
      }
+
+     if(passwordValue === '') {
+      // show error
+      // add error class
+      setErrorFor(password, 'Username cannot be blank');
+   } else if (passwordValue.length < 8) {
+      setErrorFor(password, 'The password is incorrect');
+   }else {
+      // add success class
+      setSuccessFor(password);
+   }
 
 
      
